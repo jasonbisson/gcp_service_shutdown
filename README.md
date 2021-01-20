@@ -17,36 +17,36 @@ The following APIs must be enabled in the project:
 ### Service account permissions
 The **Terraform service account** used to run this module must have the following permissions:
 
-- Cloud Function permissions
+#### Cloud Function permissions
 * cloudfunctions.functions.create
 * cloudfunctions.functions.delete
 * cloudfunctions.functions.sourceCodeSet
 * cloudfunctions.functions.update
 
-- Service Account management permissions
+#### Service Account management permissions
 * iam.serviceAccounts.create
 * iam.serviceAccounts.delete
 
-- Pub/Sub permissions
+#### Pub/Sub permissions
 * pubsub.topics.create
 * pubsub.topics.delete
 * pubsub.topics.setIamPolicy
 
-- Project IAM permission
+#### Project IAM permission
 * resourcemanager.projects.setIamPolicy
 
-- Organization IAM Permission
+#### Organization IAM Permission
 * resourcemanager.organizations.setIamPolicy
 
-- Organization Log Sink
+#### Organization Log Sink
 * logging.sinks.create
 * logging.sinks.delete
 
-- Service Management permissions
+#### Service Management permissions
 * servicemanagement.services.bind
 * serviceusage.services.enable
 
-- Storage permissions
+#### Storage permissions
 * storage.buckets.create
 * storage.buckets.delete
 * storage.buckets.getIamPolicy
