@@ -21,7 +21,7 @@ variable "environment" {
 
 variable "region" {
   description = "Region where cloud function is deployed"
-  type = "string"
+  type = string
   default = "us-central1"  
 }
 
@@ -43,28 +43,28 @@ variable "activate_apis" {
 variable "disable_services_on_destroy" {
   description = "Whether project services will be disabled when the resources are destroyed. https://www.terraform.io/docs/providers/google/r/google_project_service.html#disable_on_destroy"
   default     = "false"
-  type        = "string"
+  type        = string
 }
 
 variable "disable_dependent_services" {
   description = "Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed. https://www.terraform.io/docs/providers/google/r/google_project_service.html#disable_dependent_services"
   default     = "false"
-  type        = "string"
+  type        = string
 }
 
 variable "blocked_apis_list" {
-  type        = "list"
+  type        = list
   description = "list of APIs to prevent being used"
 }
 
 variable "runtime" {
   description = "Runtime environment for cloud function"
-  type  = "string"
+  type  = string
   default = "nodejs12"
 }
 
 variable "function_event_trigger_failure_policy_retry" {
-  type        = "string"
+  type        = string
   default     = false
   description = "A toggle to determine if the function should be retried on failure."
 }

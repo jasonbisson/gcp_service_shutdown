@@ -1,0 +1,16 @@
+# In this directory, run the following command to build this builder.
+# $ gcloud builds submit . --config=cloudbuild.yaml --substitutions _STATEBUCKET='<bucket name to host Terraform State>' _STATEFOLDER='<path to state file>'
+steps:
+- name: 'gcr.io/${PROJECT_ID}/terraform'
+  args: ['init',
+    '-backend-config=bucket=${_STATEBUCKET}',
+    '-backend-config=prefix=${_STATEFOLDER}'
+    ]
+  env:
+    - "TF_VAR_project-name=${PROJECT_ID}"
+- name: 'gcr.io/${PROJECT_ID}/terraform'
+  args: ['destroy', '-auto-approve']
+  env:
+    - "TF_VAR_project-name=${PROJECT_ID}"
+substitutions:
+    _BUCKET: # Provide your own bucket name
