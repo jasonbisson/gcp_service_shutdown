@@ -57,7 +57,7 @@ resource "google_pubsub_topic_iam_binding" "publisher" {
 resource "google_organization_iam_member" "binding" {
   org_id     = var.org_id
   role       = "roles/editor"
-  member     = "serviceAccount:google_service_account.main.email"
+  member     = "serviceAccount:${google_service_account.main.email}"
   depends_on = [google_cloudfunctions_function.function]
 }
 
