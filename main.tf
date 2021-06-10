@@ -73,10 +73,15 @@ resource "google_cloudfunctions_function" "function" {
   project               = var.project_id
   region                = var.region
   name                  = "apiPolice"
+  entry_point           = "apiPolice"
+  labels = {
+    my-label = "my-label-value"
+  }
   runtime               = var.runtime
   service_account_email = google_service_account.main.email
   source_archive_bucket = google_storage_bucket.gcf_source_bucket.name
   source_archive_object = google_storage_bucket_object.gcf_zip_gcs_object.name
+
   event_trigger {
     event_type = "google.pubsub.topic.publish"
     resource   = google_pubsub_topic.api_enable_topic.name
